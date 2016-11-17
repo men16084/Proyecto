@@ -1,23 +1,38 @@
 /**
- * 
- */
-
-/**
- * @author Max Méndez
+ * @author Max Mï¿½ndez
  *
  */
+
+import java.sql.*;
+
+
 public class LibrosDBHandler {
-	private String DB_NAME;
-	private Libro[] listaLibrosArreglo;
-	
-	public LibrosDBHandler() {
-		public Libro buscarLibro(int Id){
-			int IdLibroBuscado= Id;
-			Libro LibroBuscado = null;
-			for(int i=0;i<5;i++){
-				if(listaLibrosArreglo[i].getCarnet().equals(IdLibroBuscado));
-					LibroBuscado = newAlumno(listaLibrosArreglo[i].getNombre(), listaLibrosArreglo[i].getId(), listaLibrosArreglo[i].getCarrera(), listaLibrosArreglo[i].getAnio());
-			}
-			return LibroBuscado;
-		}
+    private boolean existe = false;
+    private Statement st;
+    private DBConnection con;
+
+    public LibrosDBHandler(boolean existe, Statement st, DBConnection con) {
+        this.existe = existe;
+        this.st = st;
+        this.con = con;
+    }
+
+    public boolean buscarlibro(int codigo) {
+
+        try {
+            st = con.getConn().createStatement();
+            String sql = "SELECT Codigo values ("+ codigo + ") from Libro";
+            st.execute(sql);
+
+            if (sql != null) {
+                existe = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return existe;
+    }
+
 }
+

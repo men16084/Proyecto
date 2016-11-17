@@ -1,86 +1,108 @@
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Prestamo {
-	private int idPrestamo;
-	private Alumno alumno;
-	private Libro libro;
-	private Date fecha;
-	/**
-	 * @return the fecha
-	 */
-	public Date getFecha() {
-		return fecha;
-	}
-	/**
-	 * @param fecha the fecha to set
-	 */
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
-	}
+	private int id;
+	private int codigoLibro;
+	private String nombreLibro;
+	private int carne;
+	private String nombreAlumno;
+	private LocalDate prestado;
+	private LocalDate vence;
 	private boolean devuelto;
+
 	/**
-	 * @return the idPrestamo
+	 * @param id
+	 * @param codigoLibro
+	 * @param nombreLibro
+	 * @param carne
+	 * @param nombreAlumno
+	 * @param prestado
+	 * @param vence
+	 * @param devuelto
 	 */
-	public int getIdPrestamo() {
-		return idPrestamo;
+
+	public Prestamo(){
 	}
-	/**
-	 * @param idPrestamo the idPrestamo to set
-	 */
-	public void setIdPrestamo(int idPrestamo) {
-		this.idPrestamo = idPrestamo;
+
+	public Prestamo(int id, int codigoLibro, String nombreLibro, int carne, String nombreAlumno, LocalDate prestado,
+			LocalDate vence, boolean devuelto) {
+		super();
+		this.id = id;
+		this.codigoLibro = codigoLibro;
+		this.nombreLibro = nombreLibro;
+		this.carne = carne;
+		this.nombreAlumno = nombreAlumno;
+		this.prestado = prestado;
+		this.vence = vence;
+		this.devuelto = devuelto;
 	}
-	/**
-	 * @return the alumno
-	 */
-	public Alumno getAlumno() {
-		return alumno;
+
+	
+	
+	public int getId() {
+		return id;
 	}
-	/**
-	 * @param alumno the alumno to set
-	 */
-	public void setAlumno(Alumno alumno) {
-		this.alumno = alumno;
+
+	public void setId(int id) {
+		this.id = id;
 	}
-	/**
-	 * @return the libro
-	 */
-	public Libro getLibro() {
-		return libro;
+
+	public int getCodigoLibro() {
+		return codigoLibro;
 	}
-	/**
-	 * @param libro the libro to set
-	 */
-	public void setLibro(Libro libro) {
-		this.libro = libro;
+
+	public void setCodigoLibro(int codigoLibro) {
+		this.codigoLibro = codigoLibro;
 	}
-	/**
-	 * @return the fechaVencimiento
-	 */
-	/**
-	 * @return the devuelto
-	 */
+
+	public String getNombreLibro() {
+		return nombreLibro;
+	}
+
+	public void setNombreLibro(String nombreLibro) {
+		this.nombreLibro = nombreLibro;
+	}
+
+	public int getCarne() {
+		return carne;
+	}
+
+	public void setCarne(int carne) {
+		this.carne = carne;
+	}
+
+	public String getNombreAlumno() {
+		return nombreAlumno;
+	}
+
+	public void setNombreAlumno(String nombreAlumno) {
+		this.nombreAlumno = nombreAlumno;
+	}
+
+	public LocalDate getPrestado() {
+		return prestado;
+	}
+
+	public void setPrestado(LocalDate prestado) {
+		this.prestado = prestado;
+	}
+
+	public LocalDate getVence() {
+		return vence;
+	}
+
+	public void setVence(LocalDate vence) {
+		this.vence = vence;
+	}
+
 	public boolean isDevuelto() {
 		return devuelto;
 	}
-	/**
-	 * @param devuelto the devuelto to set
-	 */
+
 	public void setDevuelto(boolean devuelto) {
 		this.devuelto = devuelto;
 	}
-	/**
-	 * @return the lenght
-	 */
-	public static int getLenght() {
-		return lenght;
-	}
-	/**
-	 * @param lenght the lenght to set
-	 */
-	public static void setLenght(int lenght) {
-		Prestamo.lenght = lenght;
-	}
-	public static int lenght;
+	
+	
 
 }

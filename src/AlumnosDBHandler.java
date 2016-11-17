@@ -1,24 +1,39 @@
-/**
- * 
- */
 
 /**
- * @author Max Méndez
+ * @author Max Mï¿½ndez
  *
  */
+
+import java.sql.*;
+
+
 public class AlumnosDBHandler {
-	private String DB_NAME;
-	private Alumno[] listaAlumnosArreglo;
-	
-	public AlumnosDBHandler() {
-		public Alumno buscarAlumno(int carnet){
-			int carnetAlumnoBuscado= carnet;
-			Alumno AlumnoBuscado = null;
-			for(int i=0;i<5;i++){
-				if(listaAlumnosArreglo[i].getCarnet().equals(carnetAlumnoBuscado));
-					AlumnoBuscado = newAlumno(listaAlumnosArreglo[i].getNombre(), listaAlumnosArreglo[i].getCarne(), listaAlumnosArreglo[i].getCarrera(), listaAlumnosArreglo[i].getAnio());
-			}
-			return AlumnoBuscado;
-		}
+	private boolean existe = false;
+	private Statement st;
+	private DBConnection con;
+
+	public AlumnosDBHandler(boolean existe, Statement st, DBConnection con) {
+		this.existe = existe;
+		this.st = st;
+		this.con = con;
 	}
-	
+
+	public boolean buscaralumno(int carnet) {
+
+		try {
+			st = con.getConn().createStatement();
+			String sql = "SELECT Carnet values ("+ carnet + ") from Alumnos";
+			st.execute(sql);
+
+			if (sql != null) {
+				existe = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return existe;
+	}
+
+}
+
